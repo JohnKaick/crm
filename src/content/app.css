@@ -1,5 +1,12 @@
 body {
     margin: 0px;
-    margin-left: 255px;
-    background-color: #f1f1f1;
+}
+.gasparbutton:hover {
+    background-color: rgb(192, 152, 83);
+    color: whitesmoke;
+    cursor: 'pointer';
+}
+.gasparbutton:active {
+    background-color: rgba(192, 152, 83, 0.9);
+    cursor: 'pointer';
 }
