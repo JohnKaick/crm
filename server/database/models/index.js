@@ -1,0 +1,1 @@
+const Empresa = require('./empresa');
