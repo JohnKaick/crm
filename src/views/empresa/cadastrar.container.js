@@ -1,102 +1,92 @@
 import React from 'react';
 
-import { Grid, Row, Col, ControlLabel, FormGroup, FormControl, Glyphicon, ButtonGroup, Button } from 'react-bootstrap';
+import Component from './cadastrar.component';
 
-export default (props) => {
-    const {
-        showCadastrar
-    } = props
+import { cadastrar } from './../../module/api/empresa'
 
-    return (
-        <div>
-            <Row className="show-grid">
-                <Col md={12}>
-                    <br />
-                    <form>
-                        <Row className="show-grid">
-                            <Col md={6}>
-                                <FormGroup>
-                                    <ControlLabel>Nome</ControlLabel>
-                                    <FormControl
-                                        type="text"
-                                    />
-                                </FormGroup>
-                            </Col>
-                            <Col md={6}>
-                                <FormGroup>
-                                    <ControlLabel>CNPJ</ControlLabel>
-                                    <FormControl
-                                        type="text"
-                                    />
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <FormGroup>
-                            <ControlLabel>Endereço completo</ControlLabel>
-                            <FormControl
-                                type="text"
-                            />
-                        </FormGroup>
-                        <Row className="show-grid">
-                            <Col md={6}>
-                                <FormGroup>
-                                    <ControlLabel>Categoria</ControlLabel>
-                                    <FormControl componentClass="select">
-                                        <option value="select">select</option>
-                                        <option value="other">...</option>
-                                    </FormControl>
-                                </FormGroup>
-                            </Col>
-                            <Col md={6}>
-                                <FormGroup>
-                                    <ControlLabel>Origem</ControlLabel>
-                                    <FormControl componentClass="select" >
-                                        <option value="select">select</option>
-                                        <option value="other">...</option>
-                                    </FormControl>
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <Row className="show-grid">
-                            <Col md={4}>
-                                <FormGroup>
-                                    <ControlLabel>Telefone</ControlLabel>
-                                    <FormControl
-                                        type="text"
-                                    />
-                                </FormGroup>
-                            </Col>
-                            <Col md={4}>
-                                <FormGroup>
-                                    <ControlLabel>Website</ControlLabel>
-                                    <FormControl
-                                        type="text"
-                                    />
-                                </FormGroup>
-                            </Col>
-                            <Col md={4}>
-                                <FormGroup>
-                                    <ControlLabel>Responsável</ControlLabel>
-                                    <FormControl
-                                        type="text"
-                                    />
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <FormGroup>
-                            <ControlLabel>Descrição</ControlLabel>
-                            <FormControl
-                                type="text"
-                                componentClass="textarea"
-                            />
-                        </FormGroup>
-                        <ButtonGroup style={{ float: 'right' }}>
-                            <Button bsStyle="info" type="submit"><Glyphicon glyph="glyphicon glyphicon-ok" /> Salvar</Button>
-                            <Button onClick={showCadastrar}><Glyphicon glyph="glyphicon glyphicon-remove" /> Cancelar</Button>
-                        </ButtonGroup>
-                    </form>
-                </Col>
-            </Row>
-        </div >
-    )
+export default class empresa extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.onChange = this.onChange.bind(this)
+        this.onChangeCategoria = this.onChangeCategoria.bind(this)
+        this.onChangeJornada = this.onChangeJornada.bind(this)
+        this.onChangeOrigem = this.onChangeOrigem.bind(this)
+        this.state = {
+            nome: '',
+            cnpj: '',
+            endereco: '',
+            categoria: '',
+            origem: '',
+            telefone: '',
+            website: '',
+            responsavel: '',
+            descricao: ''
+        }
+    }
+
+    onChange(e, { name, value, checked }) {
+        this.setState({
+            [name]: value || checked
+        })
+    }
+
+    onChangeCategoria(e, { value }) {
+        this.setState({
+            'categoria': value
+        })
+    }
+
+    onChangeJornada(e, { value }) {
+        this.setState({
+            'jornada': value
+        })
+    }
+
+    onChangeOrigem(e, { value }) {
+        this.setState({
+            'origem': value
+        })
+    }
+
+    onSalvar() {
+        cadastrar({
+            nome: this.state.nome,
+            cnpj: this.state.cnpj,
+            endereco: this.state.endereco,
+            categoria: this.state.categoria,
+            origem: this.state.origem,
+            telefone: this.state.telefone,
+            website: this.state.website,
+            responsavel: this.state.responsavel,
+            descricao: this.state.descricao
+        }).then((r) => {
+            this.setState({
+                nome: '',
+                cnpj: '',
+                endereco: '',
+                categoria: '',
+                origem: '',
+                telefone: '',
+                website: '',
+                responsavel: '',
+                descricao: ''
+            }).catch(err => {
+                console.log(err)
+            })
+        })
+    }
+
+    render() {
+        return (
+            <Component
+                {...this.state}
+                {...this.props}
+                onChange={this.onChange}
+                onChangeCategoria={this.onChangeCategoria}
+                onChangeJornada={this.onChangeJornada}
+                onChangeOrigem={this.onChangeOrigem}
+            />
+        )
+    }
 }

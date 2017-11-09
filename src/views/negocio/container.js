@@ -6,7 +6,6 @@ export default class Negocio extends React.Component {
 
     constructor(props) {
         super(props)
-
     }
 
     render() {

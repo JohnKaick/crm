@@ -9,14 +9,15 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, './../../build', 'index.html'));
     });
     */
-
+    
+    /*
     app.get('/', function (req, res, next) {
         res.status(200).send({
-            title: "API Node",
-            version: "1.0.0"
+            title: "API Node with express"
         });
     });
+    */
 
-    app.use('/empresa', require('./routes/empresa'))
+    app.use('/empresa', require('./../routes/empresa'))
 
 }
