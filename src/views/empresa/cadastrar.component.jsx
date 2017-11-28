@@ -5,7 +5,7 @@ import { Grid, Row, Col, ControlLabel, FormGroup, FormControl, Glyphicon, Button
 export default (props) => {
     const {
         showCadastrar, nome, cnpj, endereco, categoria, origem, telefone, website, responsavel, descricao,
-        onChange, onChangeCategoria, onChangeJornada, onChangeOrigem, onSalvar
+        handleChange, onSalvar
     } = props
 
     return (
@@ -20,9 +20,8 @@ export default (props) => {
                                     <ControlLabel>Nome</ControlLabel>
                                     <FormControl
                                         type="text"
-                                        name="nome"
                                         value={nome}
-                                        onChange={onChange}
+                                        onChange={handleChange}
                                     />
                                 </FormGroup>
                             </Col>
@@ -31,9 +30,8 @@ export default (props) => {
                                     <ControlLabel>CNPJ</ControlLabel>
                                     <FormControl
                                         type="text"
-                                        name="cnpj"
                                         value={cnpj}
-                                        onChange={onChange}
+                                        onChange={handleChange}
                                     />
                                 </FormGroup>
                             </Col>
@@ -42,9 +40,8 @@ export default (props) => {
                             <ControlLabel>Endereço completo</ControlLabel>
                             <FormControl
                                 type="text"
-                                name="endereco"
                                 value={endereco}
-                                onChange={onChange}
+                                onChange={handleChange}
                             />
                         </FormGroup>
                         <Row className="show-grid">
@@ -52,11 +49,11 @@ export default (props) => {
                                 <FormGroup>
                                     <ControlLabel>Categoria</ControlLabel>
                                     <FormControl componentClass="select">
-                                        <option value={"Cliente em potencial"} onChange={onChangeCategoria}>Cliente em potencial</option>
-                                        <option value={"Cliente efetivo"} onChange={onChangeCategoria}>Cliente efetivo</option>
-                                        <option value={"Concorrente"} onChange={onChangeCategoria}>Concorrente</option>
-                                        <option value={"Fornecedor"} onChange={onChangeCategoria}>Fornecedor</option>
-                                        <option value={"Parceiro"} onChange={onChangeCategoria}>Parceiro</option>
+                                        <option value={"Cliente em potencial"} onChange={handleChange}>Cliente em potencial</option>
+                                        <option value={"Cliente efetivo"} onChange={handleChange}>Cliente efetivo</option>
+                                        <option value={"Concorrente"} onChange={handleChange}>Concorrente</option>
+                                        <option value={"Fornecedor"} onChange={handleChange}>Fornecedor</option>
+                                        <option value={"Parceiro"} onChange={handleChange}>Parceiro</option>
                                     </FormControl>
                                 </FormGroup>
                             </Col>
@@ -64,10 +61,10 @@ export default (props) => {
                                 <FormGroup>
                                     <ControlLabel>Jornada</ControlLabel>
                                     <FormControl componentClass="select" >
-                                        <option value={"Conhece"} onChange={onChangeJornada}>Conhece</option>
-                                        <option value={"Gosta"} onChange={onChangeJornada}>Gosta</option>
-                                        <option value={"Conectado"} onChange={onChangeJornada}>Conectado</option>
-                                        <option value={"Vive"} onChange={onChangeJornada}>Vive</option>
+                                        <option value={"Conhece"} onChange={handleChange}>Conhece</option>
+                                        <option value={"Gosta"} onChange={handleChange}>Gosta</option>
+                                        <option value={"Conectado"} onChange={handleChange}>Conectado</option>
+                                        <option value={"Vive"} onChange={handleChange}>Vive</option>
                                     </FormControl>
                                 </FormGroup>
                             </Col>
@@ -75,10 +72,10 @@ export default (props) => {
                                 <FormGroup>
                                     <ControlLabel>Origem</ControlLabel>
                                     <FormControl componentClass="select" >
-                                        <option value={"Evento"} onChange={onChangeOrigem}>Evento</option>
-                                        <option value={"Indicação"} onChange={onChangeOrigem}>Indicação</option>
-                                        <option value={"Site"} onChange={onChangeOrigem}>Site</option>
-                                        <option value={"Outros"} onChange={onChangeOrigem}>Outros</option>
+                                        <option value={"Evento"} onChange={handleChange}>Evento</option>
+                                        <option value={"Indicação"} onChange={handleChange}>Indicação</option>
+                                        <option value={"Site"} onChange={handleChange}>Site</option>
+                                        <option value={"Outros"} onChange={handleChange}>Outros</option>
                                     </FormControl>
                                 </FormGroup>
                             </Col>
@@ -89,9 +86,8 @@ export default (props) => {
                                     <ControlLabel>Telefone</ControlLabel>
                                     <FormControl
                                         type="text"
-                                        name="telefone"
                                         value={telefone}
-                                        onChange={onChange}
+                                        onChange={handleChange}
                                     />
                                 </FormGroup>
                             </Col>
@@ -100,9 +96,8 @@ export default (props) => {
                                     <ControlLabel>Website</ControlLabel>
                                     <FormControl
                                         type="text"
-                                        name="website"
                                         value={website}
-                                        onChange={onChange}
+                                        onChange={handleChange}
                                     />
                                 </FormGroup>
                             </Col>
@@ -111,9 +106,8 @@ export default (props) => {
                                     <ControlLabel>Responsável</ControlLabel>
                                     <FormControl
                                         type="text"
-                                        name="responsavel"
                                         value={responsavel}
-                                        onChange={onChange}
+                                        onChange={handleChange}
                                     />
                                 </FormGroup>
                             </Col>
@@ -123,9 +117,8 @@ export default (props) => {
                             <FormControl
                                 type="text"
                                 componentClass="textarea"
-                                name="descricao"
                                 value={descricao}
-                                onChange={onChange}
+                                onChange={handleChange}
                             />
                         </FormGroup>
                         <ButtonGroup style={{ float: 'right' }}>

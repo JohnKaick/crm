@@ -4,14 +4,11 @@ import Component from './cadastrar.component';
 
 import { cadastrar } from './../../module/api/empresa'
 
-export default class empresa extends React.Component {
+export default class extends React.Component {
 
     constructor(props) {
         super(props)
-        this.onChange = this.onChange.bind(this)
-        this.onChangeCategoria = this.onChangeCategoria.bind(this)
-        this.onChangeJornada = this.onChangeJornada.bind(this)
-        this.onChangeOrigem = this.onChangeOrigem.bind(this)
+        this.handleChange = this.handleChange.bind(this)
         this.state = {
             nome: '',
             cnpj: '',
@@ -25,28 +22,8 @@ export default class empresa extends React.Component {
         }
     }
 
-    onChange(e, { name, value, checked }) {
-        this.setState({
-            [name]: value || checked
-        })
-    }
-
-    onChangeCategoria(e, { value }) {
-        this.setState({
-            'categoria': value
-        })
-    }
-
-    onChangeJornada(e, { value }) {
-        this.setState({
-            'jornada': value
-        })
-    }
-
-    onChangeOrigem(e, { value }) {
-        this.setState({
-            'origem': value
-        })
+    handleChange(e) {
+        this.setState({ value: e.target.value })
     }
 
     onSalvar() {
@@ -71,21 +48,17 @@ export default class empresa extends React.Component {
                 website: '',
                 responsavel: '',
                 descricao: ''
-            }).catch(err => {
-                console.log(err)
             })
+        }).catch(err => {
+            console.log(err)
         })
     }
 
     render() {
         return (
             <Component
-                {...this.state}
                 {...this.props}
-                onChange={this.onChange}
-                onChangeCategoria={this.onChangeCategoria}
-                onChangeJornada={this.onChangeJornada}
-                onChangeOrigem={this.onChangeOrigem}
+                handleChange={this.handleChange}
             />
         )
     }

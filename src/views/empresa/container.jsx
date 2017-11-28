@@ -2,16 +2,30 @@ import React from 'react';
 
 import Component from './component';
 
+import { obterTodos } from './../../module/api/empresa'
 
-export default class empresa extends React.Component {
+export default class extends React.Component {
 
     constructor(props) {
         super(props)
+        this.onSelecionarEmpresa = this.onSelecionarEmpresa.bind(this)
         this.showCadastrar = this.showCadastrar.bind(this)
         this.state = {
             showCadastrarResult: false,
             empresas: [],
         }
+    }
+
+    componentDidMount() {
+        obterTodos().then((emp) => {
+            this.setState({
+                empresas: emp.data || []
+            })
+        })
+    }
+
+    onSelecionarEmpresa(empresa) {
+        this.props.history.push('/empresa/' + empresa._id + '/detalhes');
     }
 
     showCadastrar() {
@@ -23,8 +37,9 @@ export default class empresa extends React.Component {
     render() {
         return (
             <Component
-                {...this.state}
                 {...this.props}
+                {...this.state}
+                onSelecionarEmpresa={this.onSelecionarEmpresa}
                 showCadastrar={this.showCadastrar}
             />
         )

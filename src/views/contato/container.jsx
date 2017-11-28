@@ -1,12 +1,17 @@
 import React from 'react';
-
+import { withRouter } from "react-router-dom";
 import { Grid, Row, Col, Panel, ListGroupItem, Button, Glyphicon } from 'react-bootstrap';
 
 export default class Contato extends React.Component {
 
     constructor(props) {
         super(props)
+        this.onSelecionarContato = this.onSelecionarContato.bind(this)
+        console.log(props)
+    }
 
+    onSelecionarContato() {
+        this.props.history.push("/contato/qwert/detalhes");
     }
 
     render() {
@@ -24,7 +29,7 @@ export default class Contato extends React.Component {
 
                 <Row className='show-grid' >
                     <Col md={4} style={{ paddingBottom: '15px' }}>
-                        <ListGroupItem header="John Pedrosa" style={{ cursor: 'pointer' }}>
+                        <ListGroupItem header="John Pedrosa" style={{ cursor: 'pointer' }} onClick={() => { this.onSelecionarContato() }}>
                             <Button bsStyle="warning" style={{ float: 'right', 'border-radius': '20px' }}><Glyphicon glyph="glyphicon glyphicon-plus" /></Button>
                             <span style={{ color: 'gray' }}>Interativa Engenharia</span><br />
                             <span>(11) 3125-0000</span>

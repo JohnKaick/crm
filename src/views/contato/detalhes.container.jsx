@@ -2,10 +2,8 @@ import React from 'react';
 
 import { Grid, Row, Col, Panel, Button, Glyphicon, Tabs, Tab, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-import CadastrarEmpresa from './cadastrar.container'
-import DetalhesEmpresa from './detalhes.container'
 
-export default class empresa extends React.Component {
+export default class extends React.Component {
 
     constructor(props) {
         super(props)
