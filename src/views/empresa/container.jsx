@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom'
 import Component from './component';
 
 import { obterTodos } from './../../module/api/empresa'
@@ -21,6 +21,8 @@ export default class extends React.Component {
             this.setState({
                 empresas: emp.data || []
             })
+        }).catch((err) => {
+            console.log(err)
         })
     }
 
@@ -28,7 +30,7 @@ export default class extends React.Component {
         this.props.history.push('/empresa/' + empresa._id + '/detalhes');
     }
 
-    showCadastrar() {
+    onSalvar() {
         this.setState({
             showCadastrarResult: !this.state.showCadastrarResult,
         })
