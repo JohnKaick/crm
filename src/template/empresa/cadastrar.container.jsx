@@ -9,6 +9,8 @@ export default class extends React.Component {
     constructor(props) {
         super(props)
         this.handleChange = this.handleChange.bind(this)
+        this.onSalvar = this.onSalvar.bind(this)
+        this.onCancelar = this.onCancelar.bind(this)
         this.state = {
             nome: '',
             cnpj: '',
@@ -54,11 +56,17 @@ export default class extends React.Component {
         })
     }
 
+    onCancelar() {
+        this.props.history.push('/empresa');
+    }
+
     render() {
         return (
             <Component
                 {...this.props}
                 handleChange={this.handleChange}
+                onSalvar={this.onSalvar}
+                onCancelar={this.onCancelar}
             />
         )
     }

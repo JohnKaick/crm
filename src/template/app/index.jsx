@@ -3,15 +3,15 @@ import { Switch, Redirect } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 //import history from './../../module/history';
 
-import Navbar from './../../components/navbar';
+import Navbar from './../components/navbar';
 
-import { Empresa, DetalhesEmpresa } from './../empresa';
+import { Empresa, DetalhesEmpresa, CadastrarEmpresa } from './../empresa';
 import Painel from './../painel/container';
 
 
 export default class extends React.Component {
     render() {
-        
+
         return (
             <div>
                 <Navbar />
@@ -21,6 +21,7 @@ export default class extends React.Component {
                             <div>
                                 <Route path="/empresa" component={Empresa} exact />
                                 <Route path="/empresa/:empresaId/detalhes" component={DetalhesEmpresa} />
+                                <Route path="/empresa/cadastrar" component={CadastrarEmpresa} />
                             </div>
                         )} />
                         <Redirect to='/painel' component={Painel} exact />
