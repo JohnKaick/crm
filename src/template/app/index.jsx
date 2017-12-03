@@ -1,10 +1,8 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-//import history from './../../module/history';
 
 import Navbar from './../components/navbar';
-
 import { Empresa, DetalhesEmpresa, CadastrarEmpresa } from './../empresa';
 import Painel from './../painel/container';
 

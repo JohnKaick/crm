@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom'
 import { Grid, Row, Col, ControlLabel, FormGroup, FormControl, Glyphicon, ButtonGroup, Button } from 'react-bootstrap';
 
+const styles = {
+    groupButton: { float: 'right', marginBottom: '20px' }
+}
 export default props => (
     <Grid>
         <Row className="show-grid">
@@ -29,14 +32,38 @@ export default props => (
                             </FormGroup>
                         </Col>
                     </Row>
-                    <FormGroup>
-                        <ControlLabel>Endereço completo</ControlLabel>
-                        <FormControl
-                            type="text"
-                            value={props.endereco}
-                            onChange={props.handleChange}
-                        />
-                    </FormGroup>
+                    <Row className="show-grid">
+                        <Col md={4}>
+                            <FormGroup>
+                                <ControlLabel>Telefone</ControlLabel>
+                                <FormControl
+                                    type="text"
+                                    value={props.telefone}
+                                    onChange={props.handleChange}
+                                />
+                            </FormGroup>
+                        </Col>
+                        <Col md={4}>
+                            <FormGroup>
+                                <ControlLabel>Website</ControlLabel>
+                                <FormControl
+                                    type="text"
+                                    value={props.website}
+                                    onChange={props.handleChange}
+                                />
+                            </FormGroup>
+                        </Col>
+                        <Col md={4}>
+                            <FormGroup>
+                                <ControlLabel>Endereço completo</ControlLabel>
+                                <FormControl
+                                    type="text"
+                                    value={props.endereco}
+                                    onChange={props.handleChange}
+                                />
+                            </FormGroup>
+                        </Col>
+                    </Row>
                     <Row className="show-grid">
                         <Col md={4}>
                             <FormGroup>
@@ -73,38 +100,6 @@ export default props => (
                             </FormGroup>
                         </Col>
                     </Row>
-                    <Row className="show-grid">
-                        <Col md={4}>
-                            <FormGroup>
-                                <ControlLabel>Telefone</ControlLabel>
-                                <FormControl
-                                    type="text"
-                                    value={props.telefone}
-                                    onChange={props.handleChange}
-                                />
-                            </FormGroup>
-                        </Col>
-                        <Col md={4}>
-                            <FormGroup>
-                                <ControlLabel>Website</ControlLabel>
-                                <FormControl
-                                    type="text"
-                                    value={props.website}
-                                    onChange={props.handleChange}
-                                />
-                            </FormGroup>
-                        </Col>
-                        <Col md={4}>
-                            <FormGroup>
-                                <ControlLabel>Responsável</ControlLabel>
-                                <FormControl
-                                    type="text"
-                                    value={props.responsavel}
-                                    onChange={props.handleChange}
-                                />
-                            </FormGroup>
-                        </Col>
-                    </Row>
                     <FormGroup>
                         <ControlLabel>Descrição</ControlLabel>
                         <FormControl
@@ -114,8 +109,8 @@ export default props => (
                             onChange={props.handleChange}
                         />
                     </FormGroup>
-                    <ButtonGroup style={{ float: 'right' }}>
-                        <Button bsStyle="info" type="submit" onClick={props.onSalvar}>
+                    <ButtonGroup style={styles.groupButton}>
+                        <Button bsStyle="info" onClick={() => props.onSalvar}>
                             <Glyphicon glyph="glyphicon glyphicon-ok" />
                             <span> Salvar</span>
                         </Button>

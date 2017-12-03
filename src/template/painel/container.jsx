@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Grid, Row, Col, Panel, ListGroupItem, Button, Glyphicon } from 'react-bootstrap';
 
-export default class Negocio extends React.Component {
+export default class extends React.Component {
 
     constructor(props) {
         super(props)
@@ -37,7 +37,7 @@ export default class Negocio extends React.Component {
                                     <h4>Novo Negócio</h4>
                                     <Panel footer={
                                         <div>
-                                            <Glyphicon glyph="glyphicon glyphicon-chevron-left" />
+                                            <Glyphicon style={{ color: '#5bc0de' }} glyph="glyphicon glyphicon-chevron-left" />
                                             <Glyphicon style={{ float: 'right', color: '#5bc0de' }} glyph="glyphicon glyphicon-chevron-right" />
                                         </div>
                                     }>

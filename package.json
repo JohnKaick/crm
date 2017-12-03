@@ -4,14 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.0",
-    "body-parser": "^1.18.2",
     "bootstrap": "^3.3.7",
     "express": "^4.16.2",
     "history": "^4.7.2",
-    "jsonwebtoken": "^8.1.0",
-    "mongoose": "^4.13.0",
-    "nodemailer": "^4.3.1",
-    "password-hash": "^1.2.2",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.0.0",
@@ -22,11 +17,10 @@
   },
   "scripts": {
     "start": "node app.js",
-    "dev": "react-scripts start",
+    "start-dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "api-dev": "nodemon app.js"
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

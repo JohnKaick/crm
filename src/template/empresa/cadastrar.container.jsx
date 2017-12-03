@@ -40,6 +40,7 @@ export default class extends React.Component {
             responsavel: this.state.responsavel,
             descricao: this.state.descricao
         }).then((r) => {
+            this.props.history.push('/empresa');
             this.setState({
                 nome: '',
                 cnpj: '',
